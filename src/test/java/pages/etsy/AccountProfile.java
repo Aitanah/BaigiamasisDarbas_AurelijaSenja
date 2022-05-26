@@ -57,4 +57,8 @@ public class AccountProfile {
     }
 
 
+    public static void signOut() {
+        Common.clickElement(Locators.Etsy.AccountProfile.buttonAccountMenu);
+        Common.clickElement(Locators.Etsy.AccountProfile.buttonSignOut);
+    }
 }
