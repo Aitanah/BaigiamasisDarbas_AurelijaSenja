@@ -16,7 +16,7 @@ public class Driver {
 //        options.addArguments("headless");
         options.addArguments("start-maximized");
         driver.set(new ChromeDriver(options));
-        driver.get().manage().timeouts().implicitlyWait(Constants.WAIT);
+        driver.get().manage().timeouts().implicitlyWait(Constants.WAIT_SHORT);
     }
 
     public static WebDriver getDriver() {
