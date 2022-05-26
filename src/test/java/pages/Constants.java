@@ -4,7 +4,7 @@ import java.time.Duration;
 
 public class Constants {
 
-    public static Duration WAIT;
-    public static String EMAIL;
-    public static String PASSWORD;
+    public static Duration WAIT = Duration.ofSeconds(5);
+    public static String EMAIL = "testdata1@gmail.com";
+    public static String PASSWORD = "TestData123";
 }
