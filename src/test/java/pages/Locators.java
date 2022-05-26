@@ -24,6 +24,7 @@ public class Locators {
             public static By buttonCreateCollectionOnPopUpWindow = By.xpath("//*[@form='createCollectionForm']");
             public static By fieldCreatCollectionWindow = By.xpath("//*[@id='create-collection-overlay']");
             public static By fieldCollections = By.xpath("//*[@class='wt-body-max-width fit-min-width-to-content']");
+            public static By buttonSignOut = By.xpath("(//*[@role='menuitem'])[9]");
         }
 
         public static class Home {
