@@ -6,36 +6,13 @@ import pages.Locators;
 
 public class AccountProfile {
 
-    public static void open() {
-        Common.openUrl("https://www.etsy.com");
-    }
-
-    public static void clickToAcceptCookies() {
-        Common.acceptCookies(Locators.Etsy.AccountProfile.buttonAcceptCookies);
-    }
-
-    public static void signIn() {
-        Common.clickElement(Locators.Etsy.AccountProfile.buttonSignInHomePage);
-        Common.sendKeysToElement(Locators.Etsy.AccountProfile.inputEmail, Constants.EMAIL);
-        Common.sendKeysToElement(Locators.Etsy.AccountProfile.inputPassword, Constants.PASSWORD);
-        Common.clickElement(Locators.Etsy.AccountProfile.buttonSignInForm);
-    }
-
+//    For Test: createCollection at AccountProfile
     public static String generateRandomCollectionName() {
         return Common.generateRandomString(Constants.SOURCES, 10);
     }
-    public static void clickAccountMenuButton() {
-        Common.waitForElementToBeClickable(Locators.Etsy.AccountProfile.frameAccountMenuButton);
-        Common.clickElement(Locators.Etsy.AccountProfile.buttonAccountMenu);
-    }
-
-    public static void clickViewYourAccountButton() {
-        Common.waitForElementToBeClickable(Locators.Etsy.AccountProfile.frameAccountMenu);
-        Common.clickElement(Locators.Etsy.AccountProfile.buttonViewYourAccount);
-    }
 
     public static void closePopUpWindow() {
-        Common.waitForElementToBeClickable(Locators.Etsy.AccountProfile.framePopUpWindow);
+        Common.waitForElementToBeClickable(Locators.Etsy.AccountProfile.buttonClosePopUpWindow);
         Common.clickElement(Locators.Etsy.AccountProfile.buttonClosePopUpWindow);
     }
 
@@ -52,13 +29,39 @@ public class AccountProfile {
     }
 
     public static String readCollectionName() {
-        Common.waitForElementToBeInvisible(Locators.Etsy.AccountProfile.fieldCreatCollectionWindow);
+        Common.waitForElementToBeInvisible(Locators.Etsy.AccountProfile.fieldCreateCollectionWindow);
         return Common.getElementText(Locators.Etsy.AccountProfile.fieldCollections);
     }
 
+//    For Test: updateAccountPreferences at AccountProfile
+    public static void clickPreferencesTab() {
+        Common.clickElement(Locators.Etsy.AccountProfile.buttonPreferences);
+    }
 
+    public static void selectCurrencyEuro() {
+        Common.clickElement(Locators.Etsy.AccountProfile.buttonCurrencyEuro);
+    }
+
+    public static void clickOnReceivePostalMaleCheckbox() {
+        Common.clickElement(Locators.Etsy.AccountProfile.inputPostalMalePreference);
+    }
+
+    public static void clickOnReceivePhoneCallsCheckbox() {
+        Common.clickElement(Locators.Etsy.AccountProfile.inputPhoneCallsPreference);
+    }
+
+    public static void clickUpdatePreferencesButton() {
+        Common.clickElement(Locators.Etsy.AccountProfile.buttonUpdatePreferences);
+    }
+
+    public static String readMessage() {
+        return Common.getElementText(Locators.Etsy.AccountProfile.fieldMessage);
+    }
+
+//    For AfterMethod
     public static void signOut() {
         Common.clickElement(Locators.Etsy.AccountProfile.buttonAccountMenu);
+        Common.waitForElementToBeClickable(Locators.Etsy.AccountProfile.buttonSignOut);
         Common.clickElement(Locators.Etsy.AccountProfile.buttonSignOut);
     }
 }
