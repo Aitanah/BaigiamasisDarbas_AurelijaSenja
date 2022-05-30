@@ -8,12 +8,11 @@ import pages.Constants;
 
 public class Driver {
 
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static void setDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-//        options.addArguments("headless");
         options.addArguments("start-maximized");
         driver.set(new ChromeDriver(options));
         driver.get().manage().timeouts().implicitlyWait(Constants.WAIT_SHORT);
@@ -24,7 +23,7 @@ public class Driver {
     }
 
     public static void closeDriver() {
-//        driver.get().quit();
-//        driver.remove();
+        driver.get().quit();
+        driver.remove();
     }
 }
